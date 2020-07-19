@@ -264,6 +264,10 @@
 					<li><a class="nav-link" href="">Blog</a></li>
 					<li><a class="nav-link" href="">Careers</a></li>
 				</ul>
+				<div class="hamburger">
+					<img id="menu-icon" class="" src="images/icon-hamburger.svg" />
+					<img id="xtimes" class="hide" src="images/icon-close.svg" alt="" />
+				</div>
 				<button class="button hide">Request Invite</button>
 			</nav>
 		</div>
@@ -318,5 +322,18 @@
 			>. Coded by <a href="#">Your Name Here</a>.
 		</div> -->
 </body>
+<script>
+	const hamburger = document.querySelector('.hamburger');
+	const menuicon = document.querySelector('#menu-icon');
+	const xtimes = document.querySelector('#xtimes');
+	const navul = document.querySelector('#nav-ul');
+
+	function toggleClass() {
+		menuicon.classList.toggle('hide');
+		xtimes.classList.toggle('hide');
+		navul.classList.toggle('show');
+	}
+	hamburger.addEventListener('click', toggleClass);
+</script>
 
 </html>
