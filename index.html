@@ -118,6 +118,137 @@
 		.button:hover {
 			opacity: 0.5;
 		}
+
+		#hero {
+			width: 100%;
+			background-image: url(images/bg-intro-desktop.svg);
+			background-repeat: no-repeat;
+			background-position-x: 624px;
+			background-position-y: -260px;
+		}
+
+		.next-gen {
+			display: flex;
+		}
+
+		.left {
+			padding-right: 110px;
+		}
+
+		.left h2 {
+			margin-top: 120px;
+			font-size: 50px;
+			font-weight: 300;
+			color: var(--primary-dark-blue);
+		}
+
+		.left p {
+			margin-top: 30px;
+			line-height: 1.7;
+			color: var(--neutral-grayish-blue);
+		}
+
+		.mg-top {
+			margin-top: 30px;
+		}
+
+		.right img {
+			margin: -120px -245px -100px 0;
+		}
+
+		.hamburger {
+			display: none;
+		}
+
+		.open {
+			display: block;
+		}
+
+		.close {
+			display: none;
+		}
+
+		@media only screen and (max-width: 800px) {
+			.hide {
+				display: none;
+			}
+
+			header {
+				padding: 20px 0;
+			}
+
+			nav>ul {
+				display: none;
+			}
+
+			nav>ul>li {
+				padding: 15px 10px;
+			}
+
+			.nav-link {
+				color: var(--primary-dark-blue);
+			}
+
+			.hamburger {
+				margin-right: 30px;
+				display: block;
+			}
+
+			.show {
+				display: block;
+				text-align: center;
+				position: absolute;
+				top: 75px;
+				border-radius: 5px;
+				box-shadow: 0px 50px 118px 10px rgba(0, 0, 0, 1);
+				width: 90%;
+				background-color: var(--neutral-white);
+				left: 5%;
+			}
+
+			.nav-link:hover::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				bottom: -15px;
+				height: 5px;
+				width: 100%;
+				background: linear-gradient(90deg,
+						rgba(49, 211, 92, 1) 30%,
+						rgba(43, 183, 218, 1) 93%);
+			}
+
+			#hero {
+				background-image: url(images/bg-intro-mobile.svg);
+				background-size: 100%;
+				background-position-x: 0;
+				background-position-y: -77px;
+			}
+
+			.next-gen {
+				flex-direction: column-reverse;
+			}
+
+			.right img {
+				margin: -292px 0;
+				width: 768px;
+				max-width: 100%;
+			}
+
+			.left {
+				text-align: center;
+				margin-top: 220px;
+				padding: 0 15px;
+			}
+
+			.left h2 {
+				font-size: 36px;
+			}
+
+			.left p {
+				font-size: 15px;
+			}
+		}
 	</style>
 </head>
 
@@ -137,6 +268,26 @@
 			</nav>
 		</div>
 	</header>
+	<main>
+		<section id="hero">
+			<div class="container next-gen">
+				<div class="left">
+					<h2>Next generation digital banking</h2>
+					<p>
+						Take your financial life online. Your Easybank account will be a
+						one-stop-shop for spending, saving, budgeting, investing, and much
+						more.
+					</p>
+					<button class="button mg-top">Request Invite</button>
+				</div>
+				<div class="right">
+					<div class="img">
+						<img src="images/image-mockups.png" alt="" />
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
 	<!-- 
 		 Why choose Easybank? We leverage Open Banking to turn your
 		bank account into your financial hub. Control your finances like never
