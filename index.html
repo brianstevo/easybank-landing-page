@@ -1,307 +1,421 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- displays site properly based on user's device -->
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<!-- displays site properly based on user's device -->
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./images/favicon-32x32.png"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<title>Frontend Mentor | Easybank landing page</title>
 
-	<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
-	<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap"
-		rel="stylesheet" />
-	<title>Frontend Mentor | Easybank landing page</title>
+		<!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+		<style>
+			:root {
+				--primary-dark-blue: hsl(233, 26%, 24%);
+				--primary-lime-green: hsl(136, 65%, 51%);
+				--primary-bright-cyan: hsl(192, 70%, 51%);
+				--neutral-grayish-blue: hsl(233, 8%, 62%);
+				--neutral-light-grayish-blue: hsl(220, 16%, 96%);
+				--neutral-very-light-gray: hsl(0, 0%, 98%);
+				--neutral-white: hsl(0, 0%, 100%);
+			}
 
-	<!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-	<style>
-		:root {
-			--primary-dark-blue: hsl(233, 26%, 24%);
-			--primary-lime-green: hsl(136, 65%, 51%);
-			--primary-bright-cyan: hsl(192, 70%, 51%);
-			--neutral-grayish-blue: hsl(233, 8%, 62%);
-			--neutral-light-grayish-blue: hsl(220, 16%, 96%);
-			--neutral-very-light-gray: hsl(0, 0%, 98%);
-			--neutral-white: hsl(0, 0%, 100%);
-		}
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				font-size: 18px;
+				font-family: 'Public Sans', sans-serif;
+			}
 
-		* {
-			margin: 0;
-			padding: 0;
-			box-sizing: border-box;
-			font-size: 18px;
-			font-family: 'Public Sans', sans-serif;
-		}
+			a {
+				text-decoration: none;
+			}
 
-		a {
-			text-decoration: none;
-		}
+			li {
+				list-style: none;
+			}
 
-		li {
-			list-style: none;
-		}
+			.container {
+				max-width: 1200px;
+				width: 100%;
+				margin: 0 auto;
+			}
 
-		.container {
-			max-width: 1200px;
-			width: 100%;
-			margin: 0 auto;
-		}
+			.flex {
+				display: flex;
+			}
 
-		.flex {
-			display: flex;
-		}
+			.attribution {
+				font-size: 11px;
+				text-align: center;
+			}
 
-		.attribution {
-			font-size: 11px;
-			text-align: center;
-		}
-
-		.attribution a {
-			color: hsl(228, 45%, 44%);
-		}
-
-		header {
-			background-color: white;
-			font-size: 18px;
-			padding: 40px 0;
-			position: relative;
-			z-index: 100;
-			/* background-color: var(--neutral-very-light-gray); */
-		}
-
-		nav {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-		}
-
-		nav>ul {
-			display: flex;
-		}
-
-		nav ul li {
-			padding-right: 30px;
-		}
-
-		.nav-link {
-			color: rgba(0, 0, 0, 0.5);
-			position: relative;
-			/*dont know why? should ask someone */
-		}
-
-		.nav-link:hover::before {
-			content: '';
-			position: absolute;
-			left: 0;
-			bottom: -50px;
-			height: 5px;
-			width: 100%;
-			background: linear-gradient(90deg,
-					rgba(49, 211, 92, 1) 30%,
-					rgba(43, 183, 218, 1) 93%);
-		}
-
-		.nav-link:hover {
-			color: var(--primary-dark-blue);
-		}
-
-		.button {
-			padding: 15px 30px;
-			color: white;
-			border: none;
-			cursor: pointer;
-			font-weight: bold;
-			border-radius: 30px;
-			background: linear-gradient(90deg,
-					rgba(49, 211, 92, 1) 30%,
-					rgba(43, 183, 218, 1) 93%);
-		}
-
-		.button:hover {
-			opacity: 0.5;
-		}
-
-		#hero {
-			width: 100%;
-			background-image: url(images/bg-intro-desktop.svg);
-			background-repeat: no-repeat;
-			background-position-x: 624px;
-			background-position-y: -260px;
-		}
-
-		.next-gen {
-			display: flex;
-		}
-
-		.left {
-			padding-right: 110px;
-		}
-
-		.left h2 {
-			margin-top: 120px;
-			font-size: 50px;
-			font-weight: 300;
-			color: var(--primary-dark-blue);
-		}
-
-		.left p {
-			margin-top: 30px;
-			line-height: 1.7;
-			color: var(--neutral-grayish-blue);
-		}
-
-		.mg-top {
-			margin-top: 30px;
-		}
-
-		.right img {
-			margin: -120px -245px -100px 0;
-		}
-
-		.hamburger {
-			display: none;
-		}
-
-		.open {
-			display: block;
-		}
-
-		.close {
-			display: none;
-		}
-
-		@media only screen and (max-width: 800px) {
-			.hide {
-				display: none;
+			.attribution a {
+				color: hsl(228, 45%, 44%);
 			}
 
 			header {
-				padding: 20px 0;
+				background-color: white;
+				font-size: 18px;
+				padding: 40px 0;
+				position: relative;
+				z-index: 100;
+				/* background-color: var(--neutral-very-light-gray); */
 			}
 
-			nav>ul {
-				display: none;
+			nav {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
 			}
 
-			nav>ul>li {
-				padding: 15px 10px;
+			nav > ul {
+				display: flex;
+			}
+
+			nav ul li {
+				padding-right: 30px;
 			}
 
 			.nav-link {
-				color: var(--primary-dark-blue);
-			}
-
-			.hamburger {
-				margin-right: 30px;
-				display: block;
-			}
-
-			.show {
-				display: block;
-				text-align: center;
-				position: absolute;
-				top: 75px;
-				border-radius: 5px;
-				box-shadow: 0px 50px 118px 10px rgba(0, 0, 0, 1);
-				width: 90%;
-				background-color: var(--neutral-white);
-				left: 5%;
+				color: rgba(0, 0, 0, 0.5);
+				position: relative;
+				/*dont know why? should ask someone */
 			}
 
 			.nav-link:hover::before {
 				content: '';
 				position: absolute;
 				left: 0;
-				bottom: -15px;
+				bottom: -50px;
 				height: 5px;
 				width: 100%;
-				background: linear-gradient(90deg,
-						rgba(49, 211, 92, 1) 30%,
-						rgba(43, 183, 218, 1) 93%);
+				background: linear-gradient(
+					90deg,
+					rgba(49, 211, 92, 1) 30%,
+					rgba(43, 183, 218, 1) 93%
+				);
+			}
+
+			.nav-link:hover {
+				color: var(--primary-dark-blue);
+			}
+
+			.button {
+				padding: 15px 30px;
+				color: white;
+				border: none;
+				cursor: pointer;
+				font-weight: bold;
+				border-radius: 30px;
+				background: linear-gradient(
+					90deg,
+					rgba(49, 211, 92, 1) 30%,
+					rgba(43, 183, 218, 1) 93%
+				);
+			}
+
+			.button:hover {
+				opacity: 0.5;
 			}
 
 			#hero {
-				background-image: url(images/bg-intro-mobile.svg);
-				background-size: 100%;
-				background-position-x: 0;
-				background-position-y: -77px;
+				width: 100%;
+				background-image: url(images/bg-intro-desktop.svg);
+				background-repeat: no-repeat;
+				background-position-x: 624px;
+				background-position-y: -260px;
 			}
 
 			.next-gen {
-				flex-direction: column-reverse;
-			}
-
-			.right img {
-				margin: -292px 0;
-				width: 768px;
-				max-width: 100%;
+				display: flex;
 			}
 
 			.left {
-				text-align: center;
-				margin-top: 220px;
-				padding: 0 15px;
+				padding-right: 110px;
 			}
 
 			.left h2 {
-				font-size: 36px;
+				margin-top: 120px;
+				font-size: 50px;
+				font-weight: 300;
+				color: var(--primary-dark-blue);
 			}
 
 			.left p {
-				font-size: 15px;
+				margin-top: 30px;
+				line-height: 1.7;
+				color: var(--neutral-grayish-blue);
 			}
-		}
-	</style>
-</head>
 
-<body>
-	<header>
-		<div class="container">
-			<nav>
-				<img class="logo" src="images/logo.svg" alt="" />
-				<ul id="nav-ul" class="">
-					<li><a class="nav-link" href="">Home</a></li>
-					<li><a class="nav-link" href="">About</a></li>
-					<li><a class="nav-link" href="">Contact</a></li>
-					<li><a class="nav-link" href="">Blog</a></li>
-					<li><a class="nav-link" href="">Careers</a></li>
-				</ul>
-				<div class="hamburger">
-					<img id="menu-icon" class="" src="images/icon-hamburger.svg" />
-					<img id="xtimes" class="hide" src="images/icon-close.svg" alt="" />
-				</div>
-				<button class="button hide">Request Invite</button>
-			</nav>
-		</div>
-	</header>
-	<main>
-		<section id="hero">
-			<div class="container next-gen">
-				<div class="left">
-					<h2>Next generation digital banking</h2>
-					<p>
-						Take your financial life online. Your Easybank account will be a
-						one-stop-shop for spending, saving, budgeting, investing, and much
-						more.
-					</p>
-					<button class="button mg-top">Request Invite</button>
-				</div>
-				<div class="right">
-					<div class="img">
-						<img src="images/image-mockups.png" alt="" />
+			.mg-top {
+				margin-top: 30px;
+			}
+
+			.right img {
+				margin: -120px -245px -100px 0;
+			}
+
+			.hamburger {
+				display: none;
+			}
+
+			.open {
+				display: block;
+			}
+
+			.close {
+				display: none;
+			}
+
+			#card {
+				margin-top: 0px;
+				background-color: var(--neutral-light-grayish-blue);
+			}
+			.card-header {
+				padding-top: 100px;
+			}
+			.card-header > h2 {
+				color: var(--primary-dark-blue);
+				font-weight: 300;
+				font-size: 33px;
+			}
+			.card-header > p {
+				margin-top: 40px;
+				line-height: 1.7;
+				color: var(--neutral-grayish-blue);
+				padding-right: 400px;
+			}
+
+			/*grid*/
+			.col4 {
+				grid-column-end: span 3;
+			}
+			.grid {
+				margin-top: 100px;
+			}
+			.glutter-grid {
+				display: grid;
+				grid-template-columns: repeat(12, 1fr);
+				grid-gap: 20px;
+			}
+			.grid-content {
+				padding: 0 10px;
+			}
+			.grid-content h3 {
+				margin-top: 20px;
+				font-size: 20px;
+				color: var(--primary-dark-blue);
+				font-weight: 300;
+			}
+			.grid-content p {
+				line-height: 1.7;
+				margin-top: 20px;
+				color: var(--neutral-grayish-blue);
+			}
+			@media only screen and (max-width: 800px) {
+				.hide {
+					display: none;
+				}
+
+				header {
+					padding: 20px 0;
+				}
+
+				nav > ul {
+					display: none;
+				}
+
+				nav > ul > li {
+					padding: 15px 10px;
+				}
+
+				.nav-link {
+					color: var(--primary-dark-blue);
+				}
+
+				.hamburger {
+					margin-right: 30px;
+					display: block;
+				}
+
+				.show {
+					display: block;
+					text-align: center;
+					position: absolute;
+					top: 75px;
+					border-radius: 5px;
+					box-shadow: 0px 50px 118px 10px rgba(0, 0, 0, 1);
+					width: 90%;
+					background-color: var(--neutral-white);
+					left: 5%;
+				}
+
+				.nav-link:hover::before {
+					content: '';
+					position: absolute;
+					left: 0;
+					bottom: -15px;
+					height: 5px;
+					width: 100%;
+					background: linear-gradient(
+						90deg,
+						rgba(49, 211, 92, 1) 30%,
+						rgba(43, 183, 218, 1) 93%
+					);
+				}
+
+				#hero {
+					background-image: url(images/bg-intro-mobile.svg);
+					background-size: 100%;
+					background-position-x: 0;
+					background-position-y: -77px;
+				}
+
+				.next-gen {
+					flex-direction: column-reverse;
+				}
+
+				.right img {
+					margin: -292px 0;
+					width: 768px;
+					max-width: 100%;
+				}
+
+				.left {
+					text-align: center;
+					margin-top: 220px;
+					padding: 0 15px;
+				}
+
+				.left h2 {
+					font-size: 36px;
+				}
+
+				.left p {
+					font-size: 15px;
+				}
+				.md1 {
+					grid-column-end: span 12;
+				}
+				.grid-content {
+					padding: 0 20px;
+					text-align: center;
+				}
+				.grid-content p {
+					font-size: 16px;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<div class="container">
+				<nav>
+					<img class="logo" src="images/logo.svg" alt="" />
+					<ul id="nav-ul" class="">
+						<li><a class="nav-link" href="">Home</a></li>
+						<li><a class="nav-link" href="">About</a></li>
+						<li><a class="nav-link" href="">Contact</a></li>
+						<li><a class="nav-link" href="">Blog</a></li>
+						<li><a class="nav-link" href="">Careers</a></li>
+					</ul>
+					<div class="hamburger">
+						<img id="menu-icon" class="" src="images/icon-hamburger.svg" />
+						<img id="xtimes" class="hide" src="images/icon-close.svg" alt="" />
+					</div>
+					<button class="button hide">Request Invite</button>
+				</nav>
+			</div>
+		</header>
+		<main>
+			<section id="hero">
+				<div class="container next-gen">
+					<div class="left">
+						<h2>Next generation digital banking</h2>
+						<p>
+							Take your financial life online. Your Easybank account will be a
+							one-stop-shop for spending, saving, budgeting, investing, and much
+							more.
+						</p>
+						<button class="button mg-top">Request Invite</button>
+					</div>
+					<div class="right">
+						<div class="img">
+							<img src="images/image-mockups.png" alt="" />
+						</div>
 					</div>
 				</div>
-			</div>
-		</section>
-	</main>
-	<!-- 
-		 Why choose Easybank? We leverage Open Banking to turn your
-		bank account into your financial hub. Control your finances like never
-		before. Online Banking Our modern web and mobile applications allow you to
-		keep track of your finances wherever you are in the world. Simple Budgeting
-		See exactly where your money goes each month. Receive notifications when
-		you’re close to hitting your limits. Fast Onboarding We don’t do branches.
-		Open your account in minutes online and start taking control of your
-		finances right away. Open API Manage your savings, investments, pension, and
-		much more from one account. Tracking your money has never been easier.
+			</section>
+			<section id="card">
+				<div class="container">
+					<div class="card-header">
+						<h2>Why choose Easybank?</h2>
+						<p>
+							We leverage Open Banking to turn your bank account into your
+							financial hub. Control your finances like never before.
+						</p>
+					</div>
+					<div class="grid">
+						<div class="glutter-grid">
+							<div class="col4 md1">
+								<div class="grid-content">
+									<img src="images/icon-online.svg" alt="" />
+									<h3>Online Banking</h3>
+									<p>
+										Our modern web and mobile applications allow you to keep
+										track of your finances wherever you are in the world.
+									</p>
+								</div>
+							</div>
+							<div class="col4 md1">
+								<div class="grid-content">
+									<img src="images/icon-budgeting.svg" alt="" />
+									<h3>Simple Budgeting</h3>
+									<p>
+										See exactly where your money goes each month. Receive
+										notifications when you’re close to hitting your limits.
+									</p>
+								</div>
+							</div>
+							<div class="col4 md1">
+								<div class="grid-content">
+									<img src="images/icon-onboarding.svg" alt="" />
+									<h3>Fast Onboarding</h3>
+									<p>
+										We don’t do branches.Open your account in minutes online and
+										start taking control of your finances right away.
+									</p>
+								</div>
+							</div>
+							<div class="col4 md1">
+								<div class="grid-content">
+									<img src="images/icon-online.svg" alt="" />
+									<h3>Open API</h3>
+									<p>
+										Manage your savings, investments, pension, and much more
+										from one account. Tracking your money has never been easier.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<!--     
+		    
 		Latest Articles By Claire Robinson Receive money in any currency with no
 		fees The world is getting smaller and we’re becoming more mobile. So why
 		should you be forced to only receive money in a single … By Wilson Hutton
@@ -315,25 +429,24 @@
 		to request an invite through the site ... About Us Contact Blog Careers
 		Support Privacy Policy Request Invite © Easybank. All Rights Reserved -->
 
-	<!-- <div class="attribution">
+		<!-- <div class="attribution">
 			Challenge by
 			<a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
 				>Frontend Mentor</a
 			>. Coded by <a href="#">Your Name Here</a>.
 		</div> -->
-</body>
-<script>
-	const hamburger = document.querySelector('.hamburger');
-	const menuicon = document.querySelector('#menu-icon');
-	const xtimes = document.querySelector('#xtimes');
-	const navul = document.querySelector('#nav-ul');
+	</body>
+	<script>
+		const hamburger = document.querySelector('.hamburger');
+		const menuicon = document.querySelector('#menu-icon');
+		const xtimes = document.querySelector('#xtimes');
+		const navul = document.querySelector('#nav-ul');
 
-	function toggleClass() {
-		menuicon.classList.toggle('hide');
-		xtimes.classList.toggle('hide');
-		navul.classList.toggle('show');
-	}
-	hamburger.addEventListener('click', toggleClass);
-</script>
-
+		function toggleClass() {
+			menuicon.classList.toggle('hide');
+			xtimes.classList.toggle('hide');
+			navul.classList.toggle('show');
+		}
+		hamburger.addEventListener('click', toggleClass);
+	</script>
 </html>
